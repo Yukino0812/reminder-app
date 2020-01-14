@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="@dimen/dp_5"
+    android:layout_marginBottom="@dimen/dp_5"
+    android:paddingBottom="@dimen/dp_5"
+    android:background="@drawable/shape_radius_lb200_solid_lb100">
+
+    <ImageView
+        android:id="@+id/ivDelete"
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_30"
+        android:src="@drawable/garbage"
+        android:tint="@android:color/white"
+        android:background="@drawable/shape_radius_red"
+        android:paddingTop="@dimen/dp_6"
+        android:paddingBottom="@dimen/dp_6"
+        android:paddingStart="@dimen/dp_1"
+        android:paddingEnd="@dimen/dp_1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvSubject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="测试标题"
+        android:gravity="center"
+        android:ems="16"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textSize="@dimen/sp_16"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_10"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvDetail"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        tools:text="测试文本"
+        android:gravity="center"
+        android:lines="3"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_10"
+        app:layout_constraintTop_toBottomOf="@id/tvSubject"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_5"
+        tools:text="测试文本"
+        android:textColor="@color/pinka700"
+        app:layout_constraintTop_toBottomOf="@id/tvDetail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
