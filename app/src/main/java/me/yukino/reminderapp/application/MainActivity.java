@@ -1,13 +1,19 @@
 package me.yukino.reminderapp.application;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.tencent.mmkv.MMKV;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -35,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private Unbinder unbinder;
     private LoginPresenter loginPresenter;
     private CompositeDisposable compositeDisposable;
+    private boolean permissionChecked = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +56,41 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         tvVersion.setText(BuildConfig.VERSION_NAME + "(" + BuildConfig.VERSION_CODE + ")");
         this.compositeDisposable = new CompositeDisposable();
+        checkPermission();
+    }
+
+    public void checkPermission() {
+        if (permissionChecked) {
+            return;
+        }
+        permissionChecked = true;
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+                || ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            new MaterialAlertDialogBuilder(this, R.style.ThemeOverlay_MaterialComponents_MaterialAlertDialog_App)
+                    .setTitle("权限申请提示")
+                    .setMessage("将要申请存储读写权限，用于记录应用发生异常导致崩溃时的运行状态信息")
+                    .setPositiveButton("知道了", (dialogInterface, i) -> {
+                        ActivityCompat.requestPermissions(this, new String[]{
+                                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                Manifest.permission.READ_EXTERNAL_STORAGE
+                        }, 1);
+                    })
+                    .setCancelable(false)
+                    .show();
+        } else {
+            checkCache();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 1) {
+            checkCache();
+        }
+    }
+
+    public void checkCache() {
         if (!haveCache()) {
             toLoginView();
             return;

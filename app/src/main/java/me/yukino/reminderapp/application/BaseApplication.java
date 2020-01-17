@@ -55,9 +55,7 @@ public class BaseApplication extends Application implements Thread.UncaughtExcep
     }
 
     private void saveExceptionStackTrace(String deviceInfo, Throwable e) {
-        String fileName = DateUtil.now()
-                .replaceAll(" ", "-")
-                .concat(".log");
+        String fileName = DateUtil.now().concat(".log");
         String dirName = BASE_DIR + "crash/";
         File file = new File(Environment.getExternalStorageDirectory(), dirName + fileName);
         boolean mkdir = file.getParentFile().mkdirs();

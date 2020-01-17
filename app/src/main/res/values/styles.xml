@@ -24,10 +24,20 @@
         <item name="materialAlertDialogTitleTextStyle">
             @style/MaterialAlertDialog.MaterialComponents.Title.MyText
         </item>
+        <item name="buttonBarPositiveButtonStyle">
+            @style/Widget.MaterialComponents.Button.MyTextButton.Dialog
+        </item>
+        <item name="buttonBarNegativeButtonStyle">
+            @style/Widget.MaterialComponents.Button.MyTextButton.Dialog
+        </item>
     </style>
 
     <style name="MaterialAlertDialog.MaterialComponents.Title.MyText" parent="MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked">
         <item name="android:textSize">@dimen/sp_15</item>
+    </style>
+
+    <style name="Widget.MaterialComponents.Button.MyTextButton.Dialog" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textSize">@dimen/sp_14</item>
     </style>
 
     <!-- 自定义日期选择器 Start -->
