@@ -71,4 +71,8 @@ dependencies {
     // https://mvnrepository.com/artifact/com.tencent/mmkv
     implementation group: 'com.tencent', name: 'mmkv', version: '1.0.18'
 
+    // Meterial Design
+    // https://mvnrepository.com/artifact/com.google.android.material/material
+    implementation group: 'com.google.android.material', name: 'material', version: '1.2.0-alpha03'
+
 }

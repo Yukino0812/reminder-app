@@ -3,12 +3,11 @@ package me.yukino.reminderapp.user;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.button.MaterialButton;
 import com.jakewharton.rxbinding3.view.RxView;
-import com.tencent.mmkv.MMKV;
 
 import androidx.appcompat.app.AppCompatActivity;
 import butterknife.BindView;
@@ -23,7 +22,6 @@ import io.reactivex.disposables.Disposable;
 import me.yukino.reminderapp.R;
 import me.yukino.reminderapp.record.RecordActivity;
 import me.yukino.reminderapp.user.vo.RegisterVO;
-import me.yukino.reminderapp.util.MMKVKeyEnum;
 
 /**
  * @author Yukino Yukinoshita
@@ -43,7 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
     @BindView(R.id.etInviteCode)
     EditText etInviteCode;
     @BindView(R.id.btnRegister)
-    Button btnRegister;
+    MaterialButton btnRegister;
 
     private CompositeDisposable compositeDisposable;
 

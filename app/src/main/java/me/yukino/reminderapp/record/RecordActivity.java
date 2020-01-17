@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.tencent.mmkv.MMKV;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -63,7 +64,10 @@ public class RecordActivity extends AppCompatActivity {
         recordAdapter.setRecordOnClickListener(new RecordAdapter.RecordOnClickListener() {
             @Override
             public void onClickRecord(RecordVO vo) {
-                Toast.makeText(getApplicationContext(), vo.getDetails(), Toast.LENGTH_SHORT).show();
+                new MaterialAlertDialogBuilder(RecordActivity.this, R.style.ThemeOverlay_MaterialComponents_MaterialAlertDialog_App)
+                        .setTitle(vo.getSubject())
+                        .setMessage(vo.getDetails())
+                        .show();
             }
 
             @Override
