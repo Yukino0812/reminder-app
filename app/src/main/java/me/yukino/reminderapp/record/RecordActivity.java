@@ -23,6 +23,7 @@ import io.reactivex.disposables.Disposable;
 import me.yukino.reminderapp.R;
 import me.yukino.reminderapp.record.adapter.RecordAdapter;
 import me.yukino.reminderapp.record.vo.RecordVO;
+import me.yukino.reminderapp.user.LoginActivity;
 import me.yukino.reminderapp.util.MMKVKeyEnum;
 import me.yukino.reminderapp.vo.ResponseResult;
 
@@ -141,6 +142,8 @@ public class RecordActivity extends AppCompatActivity {
         mmkv.encode(MMKVKeyEnum.USERNAME, "");
         mmkv.encode(MMKVKeyEnum.PASSWORD, "");
         mmkv.encode(MMKVKeyEnum.COOKIE, "");
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
         this.finish();
     }
 

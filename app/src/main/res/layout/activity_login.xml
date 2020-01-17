@@ -110,4 +110,15 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/tvVersion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        tools:text="test"
+        android:textSize="@dimen/sp_13"
+        android:textColor="@color/lightblue400"
+        android:layout_marginBottom="@dimen/dp_50"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

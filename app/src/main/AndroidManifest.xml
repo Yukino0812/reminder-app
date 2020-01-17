@@ -13,13 +13,16 @@
         android:networkSecurityConfig="@xml/network_config"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".user.LoginActivity" android:launchMode="singleTask">
+        <activity android:name=".application.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".user.LoginActivity"
+            android:launchMode="singleTask" />
         <activity android:name=".user.RegisterActivity"/>
         <activity android:name=".record.RecordActivity"/>
         <activity android:name=".record.CreateRecordActivity"/>
