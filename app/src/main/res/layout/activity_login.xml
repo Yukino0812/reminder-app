@@ -73,6 +73,7 @@
                 android:paddingTop="@dimen/dp_5"
                 android:paddingBottom="@dimen/dp_5"
                 tools:text="test"
+                android:inputType="textPassword"
                 android:hint="密码"
                 android:ems="8"
                 android:maxLines="1"
